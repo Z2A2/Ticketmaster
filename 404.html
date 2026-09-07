@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ticketmaster Clone</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<div class="logo">t</div>
+<h1>Ticketmaster</h1>
+</header>
+
+<nav>
+<button onclick="showPage('discover')">Discover</button>
+<button onclick="showPage('tickets')">My Tickets</button>
+<button onclick="showPage('sell')">Sell</button>
+<button onclick="showPage('account')">Account</button>
+</nav>
+
+<main>
+<section id="discover" class="page">
+<h2>Discover Events</h2>
+<div class="card">Concerts</div>
+<div class="card">Sports</div>
+<div class="card">Comedy</div>
+</section>
+
+<section id="tickets" class="page hidden">
+<h2>My Tickets</h2>
+<div class="card">No tickets added yet</div>
+</section>
+
+<section id="sell" class="page hidden">
+<h2>Sell Tickets</h2>
+<div class="card">List your tickets here</div>
+</section>
+
+<section id="account" class="page hidden">
+<h2>Account</h2>
+<div class="card">Profile Settings</div>
+</section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
