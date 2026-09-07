@@ -1,2 +1,0 @@
-
-export { MyTicketsPage } from "./MyTicketsPageEnhanced";
