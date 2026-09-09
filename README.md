@@ -1,1 +1,0 @@
-# TicketWAVES Production Starter
