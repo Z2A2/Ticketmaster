@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tickets</title>
+<style>
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:#f5f6f8;
+    color:#17181b;
+  }
+  .app{width:100%;max-width:none;margin:auto;background:#f5f6f8;min-height:100vh}
+  header{
+    height:58px;background:white;border-bottom:1px solid #e3e5e8;
+    display:flex;align-items:center;justify-content:space-between;padding:0 18px;
+    font-weight:700;
+  }
+  header .title{font-size:18px}
+  .order{
+    padding:18px 18px 8px;font-size:14px;font-weight:700;
+  }
+  .tickets{padding:0 14px}
+  .ticket{
+    background:#fff;border:1px solid #e1e3e7;border-radius:12px;
+    margin:10px 0;padding:15px;box-shadow:0 1px 2px rgba(0,0,0,.04)
+  }
+  .ticket-top{display:flex;justify-content:space-between;gap:10px}
+  .ticket-type{font-weight:700;font-size:14px}
+  .ticket-number{font-size:12px;color:#777}
+  .details{
+    display:grid;grid-template-columns:repeat(3,1fr);margin-top:15px;
+    border-top:1px solid #eee;padding-top:14px;gap:8px
+  }
+  .label{font-size:10px;color:#777;text-transform:uppercase;letter-spacing:.6px}
+  .value{font-size:15px;font-weight:700;margin-top:4px}
+  .options{
+    padding:13px 18px 5px;color:#555;font-size:13px;font-weight:700;
+  }
+  .venue{
+    background:white;margin-top:8px;padding:18px;
+    border-top:1px solid #e4e5e8;border-bottom:1px solid #e4e5e8;
+  }
+  .venue-row{display:flex;justify-content:space-between;align-items:center}
+  .venue-name{font-size:16px;font-weight:700}
+  .directions{color:#1769e0;font-size:13px;font-weight:700;cursor:pointer}
+  .event{
+    padding:20px 18px;background:#fff;margin-top:10px;
+  }
+  .date{font-size:14px;font-weight:800;margin-bottom:8px}
+  .event-name{font-size:20px;font-weight:800;line-height:1.2}
+  .address{color:#666;font-size:13px;line-height:1.45;margin-top:8px}
+  .got{
+    margin:10px 18px 0;background:#fff;border-radius:12px;padding:18px;
+    text-align:center;border:1px solid #e1e3e7
+  }
+  .got h2{font-size:20px;margin:0 0 5px}
+  .got p{font-size:13px;color:#666;margin:0}
+  .actions{padding:12px 18px 28px}
+  button{
+    width:100%;border:0;border-radius:9px;padding:14px;margin-top:9px;
+    font-size:14px;font-weight:800;cursor:pointer
+  }
+  .primary{background:#1769e0;color:#fff}
+  .secondary{background:#fff;color:#1769e0;border:1px solid #1769e0}
+  .outline{background:#fff;color:#222;border:1px solid #d8dbe0}
+  .toast{
+    position:fixed;left:50%;bottom:22px;transform:translateX(-50%);
+    background:#222;color:#fff;padding:11px 16px;border-radius:20px;
+    font-size:13px;opacity:0;pointer-events:none;transition:.25s;
+  }
+  .toast.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <span>Help</span>
+    <span class="title">Tickets</span>
+    <span>Extras</span>
+  </header>
+
+  <div class="order">Order #14-55519/KUM</div>
+
+  <section class="tickets">
+    <div class="ticket">
+      <div class="ticket-top">
+        <div class="ticket-type">Standard Ticket</div>
+        <div class="ticket-number">Ticket 1 of 3</div>
+      </div>
+      <div class="details">
+        <div><div class="label">Section</div><div class="value">D11</div></div>
+        <div><div class="label">Row</div><div class="value">17</div></div>
+        <div><div class="label">Seat</div><div class="value">4</div></div>
+      </div>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-top">
+        <div class="ticket-type">Standard Ticket</div>
+        <div class="ticket-number">Ticket 2 of 3</div>
+      </div>
+      <div class="details">
+        <div><div class="label">Section</div><div class="value">D11</div></div>
+        <div><div class="label">Row</div><div class="value">17</div></div>
+        <div><div class="label">Seat</div><div class="value">5</div></div>
+      </div>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-top">
+        <div class="ticket-type">Standard Ticket</div>
+        <div class="ticket-number">Ticket 3 of 3</div>
+      </div>
+      <div class="details">
+        <div><div class="label">Section</div><div class="value">D11</div></div>
+        <div><div class="label">Row</div><div class="value">17</div></div>
+        <div><div class="label">Seat</div><div class="value">6</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="options">MORE OPTIONS</div>
+
+  <section class="venue">
+    <div class="venue-row">
+      <div class="venue-name">Accor Stadium</div>
+      <div class="directions" onclick="showToast('Directions demo')">Get Directions</div>
+    </div>
+  </section>
+
+  <section class="event">
+    <div class="date">SAT • FEB 20, 2027 • 5:00 PM</div>
+    <div class="event-name">BTS WORLD TOUR 'ARIRANG' IN SYDNEY</div>
+    <div class="address">Accor Stadium, Sydney Olympic Park, New South Wales</div>
+  </section>
+
+  <section class="got">
+    <h2>YOU GOT TICKETS!</h2>
+    <p>Build hype for the event and share that you got tickets with your friends and family.</p>
+  </section>
+
+  <section class="actions">
+    <button class="primary" onclick="showToast('Social sharing demo')">Post on Social Media</button>
+    <button class="outline" onclick="showToast('Share demo')">Share You're Going</button>
+    <button class="secondary" onclick="showToast('Transfer demo — no ticket is transferred')">Transfer</button>
+    <button class="outline" onclick="showToast('Sell demo — no ticket is listed')">Sell</button>
+  </section>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+function showToast(message){
+  const toast=document.getElementById("toast");
+  toast.textContent=message;
+  toast.classList.add("show");
+  clearTimeout(window.toastTimer);
+  window.toastTimer=setTimeout(()=>toast.classList.remove("show"),2200);
+}
+</script>
+</body>
+</html>
